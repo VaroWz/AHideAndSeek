@@ -1,0 +1,35 @@
+#Teleport Seekers
+Seekers:
+  x: 0
+  y: 100
+  z: 0
+
+#Teleport Hider
+Hider:
+  x: 10
+  y: 100
+  z: 10
+
+#Name server
+ServerName: "cc-4"
+
+#End command
+EndCommand: "bc commande de leave"
+
+#Messages
+Messages:
+  Prefix: "&f[&eCache-Cache&f] "
+  NoPerm: "&cVous n'avez pas la permission de faire ça.'"
+  Reloading: "&aReloaded !"
+  EnoughPlayer: "&cIl n'y a pas assez de joueur pour lancer le jeu."
+  AlreadyStarted: "&cLe jeu a déjà commencé."
+  BroadcastSeekers: "&a%player% &fest le chercheur ! Bonne chance."
+  TitleHider: "&fDébut du jeu, cachez vous !"
+  SublineTitleHider: "&4%seekers% &cvous cherchent !"
+  TitleSeekers: "&eVous êtes le chercheur !"
+  SublineTitleSeekers: "&fTrouvez tous les joueurs pour gagner."
+  TimerAnnoncement: "&7Il reste &a%timer%s &7avant la fin du jeu."
+  FoundPlayer: "&a%player% &fa été trouvé !"
+  HiderWin: "&2&lLes cacheurs ont gagné la partie !"
+  SeekersWin: "&6&lLe chercheur a gagné la partie !"
+  

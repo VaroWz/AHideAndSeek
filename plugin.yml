@@ -1,0 +1,8 @@
+api: spigot.jar
+name: AHideAndSeek
+version: 1.0.0
+author: VaroWz
+main: fr.varowz.hideandseek.Main
+commands:
+  HideAndSeek:
+    aliases: [has]
