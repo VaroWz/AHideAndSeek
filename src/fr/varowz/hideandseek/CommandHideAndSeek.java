@@ -8,6 +8,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import fr.varowz.hideandseek.scoreboard.FastBoard;
 import utils.TitleManager;
@@ -39,12 +41,12 @@ public class CommandHideAndSeek implements CommandExecutor {
 					sender.sendMessage(main.getPrefix() + main.getConfig().getString("Messages.Reloading").replace("&", "§"));
 		
 				}
-				else {
-					HelpMessage(sender);
-				}
+				//else {
+					//HelpMessage(sender);
+				//}
 			}
 			//2 ou plus d'arguments
-			if(args.length >= 2) {
+			if(args.length == 1) {
 				String arg = args[0];
 				//si c'est start
 				if(arg.equalsIgnoreCase("start")) {
@@ -58,9 +60,9 @@ public class CommandHideAndSeek implements CommandExecutor {
 					//récupère tout les joueurs en ligne
 					for(Player player : Bukkit.getServer().getOnlinePlayers()) {
 						//répète le nombre de fois que d'arguments
-						for (int i=1; i<args.length;i++) {
+						//for (int i=1; i<args.length;i++) {
 							//si le joueur de la boucle joueur est égal à un argument
-							if(player.getName().equalsIgnoreCase(args[i])) {
+							//if(player.getName().equalsIgnoreCase(args[i])) {
 								//ajout du joueur dans la partie
 								if(!main.getPlayers().contains(player)) {
 									main.getPlayers().add(player);
@@ -90,14 +92,14 @@ public class CommandHideAndSeek implements CommandExecutor {
 								}
 								//le joueur existe deja dans la partie
 								else {
-									System.out.println(main.getPrefix()+args[i]+ " already exists in the game.");
+									System.out.println(main.getPrefix()+player.getName()+ " already exists in the game.");
 								}
-							}
+							//}
 							//le joueur a pas un pseudo de qlq de co
-							else {
-								System.out.println(main.getPrefix() + args[i] + " is not a player.");
-							}
-						}
+							//else {
+								//System.out.println(main.getPrefix() + args[i] + " is not a player.");
+							//}
+						//}
 					}
 					//si il n'y a pas assez de joueur
 					if(main.getPlayers().isEmpty() || main.getPlayers().size() == 1) {
@@ -165,7 +167,8 @@ public class CommandHideAndSeek implements CommandExecutor {
 					
 					
 					main.setOnLife(main.getPlayers().size());
-					AutoStart.timer = 300;
+					main.getSeekers().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20*30, 5 -1));
+					AutoStart.timer = 330;
 					AutoStart start = new AutoStart(main);
 					start.runTaskTimer(main, 0, 20);
 					
@@ -182,7 +185,7 @@ public class CommandHideAndSeek implements CommandExecutor {
 	public void HelpMessage(CommandSender sender) {
 		sender.sendMessage("§8§m-----"+main.getPrefix()+"§8§m-----");
 		sender.sendMessage("§6/hideandseek reload §ePour reload la config.");
-		sender.sendMessage("§6/hideandseek start <pseudos> §eLancer la partie.");
+		sender.sendMessage("§6/hideandseek start §eLancer la partie.");
 	}
 
 }
