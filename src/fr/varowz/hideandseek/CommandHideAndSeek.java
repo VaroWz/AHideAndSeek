@@ -168,6 +168,7 @@ public class CommandHideAndSeek implements CommandExecutor {
 					
 					main.setOnLife(main.getPlayers().size());
 					main.getSeekers().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20*30, 5 -1));
+					main.getSeekers().addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20*30, 5));
 					AutoStart.timer = 330;
 					AutoStart start = new AutoStart(main);
 					start.runTaskTimer(main, 0, 20);

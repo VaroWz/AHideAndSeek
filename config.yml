@@ -14,7 +14,10 @@ Hider:
 ServerName: "cc-4"
 
 #End command
-EndCommand: "bc commande de leave"
+EndCommands:
+  1: "bc commande de leave"
+  2: "bc commande de leave"
+  3: "bc commande de leave"
 
 #Messages
 Messages:

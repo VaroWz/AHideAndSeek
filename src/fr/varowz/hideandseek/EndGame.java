@@ -26,7 +26,10 @@ public class EndGame extends BukkitRunnable{
 		
 		if(timer==0) {
 			main.setState(GState.NOGAME);
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), main.getConfig().getString("EndCommand"));
+			for(String string: main.getConfig().getConfigurationSection("Events").getKeys(false)) {
+				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), main.getConfig().getConfigurationSection("EndCommands").getString(string));
+			}
+			
 			main.getPlayers().clear();
 			main.setSeekers(null);
 			cancel();
